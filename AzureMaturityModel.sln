@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AzureMaturityModel.Database", "AzureMaturityModel.Database\AzureMaturityModel.Database.sqlproj", "{DCA5F631-C005-4241-9D19-551A1493F198}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCA5F631-C005-4241-9D19-551A1493F198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCA5F631-C005-4241-9D19-551A1493F198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCA5F631-C005-4241-9D19-551A1493F198}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DCA5F631-C005-4241-9D19-551A1493F198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCA5F631-C005-4241-9D19-551A1493F198}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCA5F631-C005-4241-9D19-551A1493F198}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5688982-3310-4B03-8827-AF583551F7C4}
+	EndGlobalSection
+EndGlobal

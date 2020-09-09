@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="521e2b53-1cca-4e5d-b5df-a93346bfbc2f" ChangeDateTime="09/09/2020 09:44:25">
+    <Property Name="ElementName" Value="[dbo].[Organisation].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Organisation]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OrganisationId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d9a17ebd-a291-4e54-b420-354f508eeb3e" ChangeDateTime="09/09/2020 09:46:51">
+    <Property Name="ElementName" Value="[dbo].[Solution].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Solution]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SolutionId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="19463216-a142-4aef-9e4c-21686dc9f654" ChangeDateTime="09/09/2020 09:50:55">
+    <Property Name="ElementName" Value="[dbo].[MetricCategory].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MetricCategory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MetricCategoryId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e06f4ced-aa4f-4149-979a-6a4ccd87178f" ChangeDateTime="09/09/2020 09:51:49">
+    <Property Name="ElementName" Value="[dbo].[MaturityMetric].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MaturityMetric]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MaturityMetricId" />
+  </Operation>
+</Operations>
