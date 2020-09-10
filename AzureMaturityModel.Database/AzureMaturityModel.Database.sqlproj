@@ -56,6 +56,7 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="ScaffoldingScripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Organisation.sql" />
@@ -63,8 +64,13 @@
     <Build Include="Solution.sql" />
     <Build Include="MetricCategory.sql" />
     <Build Include="MaturityMetric.sql" />
+    <Build Include="SolutionMetric.sql" />
+    <Build Include="MaturityLevel.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AzureMaturityModel.Database.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ScaffoldingScripts\PopulateTestData.sql" />
   </ItemGroup>
 </Project>
