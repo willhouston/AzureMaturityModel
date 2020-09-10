@@ -1,4 +1,8 @@
-﻿CREATE TABLE [dbo].[MaturityMetric]
+﻿IF OBJECT_ID('dbo.MaturityMetric', 'U') IS NOT NULL
+DROP TABLE dbo.MaturityMetric
+GO
+
+CREATE TABLE [dbo].[MaturityMetric]
 (
 	[MaturityMetricId] INT NOT NULL PRIMARY KEY, 
     [MetricCategoryId] INT NOT NULL, 

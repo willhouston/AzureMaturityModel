@@ -1,4 +1,8 @@
-﻿CREATE TABLE [dbo].[Solution]
+﻿IF OBJECT_ID('dbo.Solution', 'U') IS NOT NULL
+DROP TABLE dbo.Solution
+GO
+
+CREATE TABLE [dbo].[Solution]
 (
 	[SolutionId] INT NOT NULL PRIMARY KEY, 
     [TeamId] INT NOT NULL, 
