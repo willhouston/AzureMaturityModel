@@ -17,7 +17,7 @@ DECLARE @OrgId AS UNIQUEIDENTIFIER = '06116E2E-1DC5-422C-B3F1-93CE2D6018D7'
 DECLARE @TeamId INT
 DECLARE @SolutionId INT
 
-SELECT @OrgId
+--SELECT @OrgId
 
 IF NOT EXISTS(SELECT 1 FROM Organisation)
 BEGIN
@@ -37,10 +37,13 @@ END
 IF NOT EXISTS (SELECT 1 FROM Solution)
 BEGIN
 	INSERT INTO Solution (SolutionId, TeamId, SolutionName, InternalRef, StatusId, [Description], LastUpdate)
-	VALUES(1, 1, 'Azure Maturity Model', 'CW001', 1, 'The baseline solution for the Azure Maturity MOdel platform', GETDATE())
+	VALUES(1, 1, 'Azure Maturity Model', 'CW001', 1, 'The baseline solution for the Azure Maturity Model platform', GETDATE())
 
 	INSERT INTO Solution (SolutionId, TeamId, SolutionName, InternalRef, StatusId, [Description], LastUpdate)
 	VALUES(2, 1, 'Test solution', 'CW002', 1, 'Test solution for development', GETDATE())
+
+	INSERT INTO Solution (SolutionId, TeamId, SolutionName, InternalRef, StatusId, [Description], LastUpdate)
+	VALUES(3, 1, 'Test solution 2', 'CW002', 1, 'Another test solution for development', GETDATE())
 END
 
 
@@ -91,9 +94,34 @@ BEGIN
 	INSERT INTO MaturityMetric(MaturityMetricId, MetricCategoryId, MaturityMetricName, [Description]) VALUES(31,6,'SIEM database logs integrated', 'Description')
 END
 
+IF NOT EXISTS (SELECT 1 FROM MaturityLevel)
+BEGIN
+	INSERT INTO MaturityLevel(MaturityLevelId, MaturityLevelName) VALUES(0, 'N/A')
+	INSERT INTO MaturityLevel(MaturityLevelId, MaturityLevelName) VALUES(1, 'Not started')
+	INSERT INTO MaturityLevel(MaturityLevelId, MaturityLevelName) VALUES(2, 'In progress')
+	INSERT INTO MaturityLevel(MaturityLevelId, MaturityLevelName) VALUES(3, 'Complete')
+END
+
+-- Populate all solutions with all metrics, not started
+IF NOT EXISTS (SELECT 1 FROM [SolutionMetric])
+BEGIN
+	INSERT INTO [dbo].[SolutionMetric] (SolutionId, MaturityMetricId, MaturityLevelId, EnvironmentTag)
+	SELECT
+		s.SolutionId
+		,m.MaturityMetricId
+		,1
+		,'Development'
+	FROM Solution s
+		CROSS JOIN MaturityMetric m 
+
+END
+
+/*
+
  SELECT * FROM Organisation
  SELECT * FROM Team
  SELECT * FROM Solution
 
  SELECT * FROM MetricCategory
  SELECT * FROM MaturityMetric
+ */

@@ -28,4 +28,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="MaturityMetricId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="50f27099-551b-43dc-94a3-f8152eeaa8a5" ChangeDateTime="09/13/2020 12:39:33">
+    <Property Name="ElementName" Value="[dbo].[MaturityLevel].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MaturityLevel]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[MaturityLevelId]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4462d8d0-5669-4747-a5a3-a8e592ea0d81" ChangeDateTime="09/13/2020 12:40:49">
+    <Property Name="ElementName" Value="[dbo].[MaturityLevel].[[MaturityLevelId]]]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MaturityLevel]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MaturityLevelId" />
+  </Operation>
 </Operations>
