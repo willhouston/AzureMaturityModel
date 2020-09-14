@@ -114,6 +114,10 @@ BEGIN
 	FROM Solution s
 		CROSS JOIN MaturityMetric m 
 
+-- Update some random maturity values to aid visualisation
+	UPDATE [SolutionMetric] SET
+		MaturityLevelId = (SolutionId + MaturityMetricId) % 4
+
 END
 
 /*

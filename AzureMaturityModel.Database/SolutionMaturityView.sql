@@ -1,5 +1,5 @@
 ﻿CREATE VIEW [dbo].[SolutionMaturityView] AS
-	SELECT t.TeamName, s.SolutionName, mc.MetricCategoryName, m.MaturityMetricName, sm.MaturityLevelId, ml.MaturityLevelName, mc.SortKey as [CategorySortKey], m.SortKey as [MetricSortKey]
+	SELECT t.TeamName, s.SolutionName, CONCAT(mc.SortKey, ' - ', mc.MetricCategoryName) as MetricCategoryName, CONCAT(m.SortKey, ' - ', m.MaturityMetricName) as MaturityMetricName, sm.MaturityLevelId, ml.MaturityLevelName, mc.SortKey as [CategorySortKey], m.SortKey as [MetricSortKey]
         FROM 
             Solution as s
                 INNER JOIN Team t
