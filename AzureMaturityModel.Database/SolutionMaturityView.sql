@@ -1,7 +1,9 @@
 ﻿CREATE VIEW [dbo].[SolutionMaturityView] AS
-	SELECT s.SolutionName, mc.MetricCategoryName, m.MaturityMetricName, ml.MaturityLevelName
-        FROM    
+	SELECT t.TeamName, s.SolutionName, mc.MetricCategoryName, m.MaturityMetricName, sm.MaturityLevelId, ml.MaturityLevelName, mc.SortKey as [CategorySortKey], m.SortKey as [MetricSortKey]
+        FROM 
             Solution as s
+                INNER JOIN Team t
+                    ON s.TeamId = t.TeamId
                 INNER JOIN SolutionMetric sm
                     ON s.SolutionId = sm.SolutionId
                 INNER JOIN MaturityLevel ml
