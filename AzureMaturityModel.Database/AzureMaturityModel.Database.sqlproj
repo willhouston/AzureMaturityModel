@@ -66,6 +66,7 @@
     <Build Include="MaturityMetric.sql" />
     <Build Include="SolutionMetric.sql" />
     <Build Include="MaturityLevel.sql" />
+    <Build Include="SolutionMaturityView.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AzureMaturityModel.Database.refactorlog" />
