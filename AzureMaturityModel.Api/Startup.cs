@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using AzureMaturityModel.Api.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,7 +28,20 @@ namespace AzureMaturityModel.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Connection string stored as User Secret for security purposes (dotnet user-secrets list) (dotnet user-secrets set "Database:ConnectionString" "connection string")
+            string connStr = Configuration.GetSection("Database").Get<DatabaseSettings>().ConnectionString;
+            services.AddDbContext<AzureMaturityModelContext>(opt => opt.UseSqlServer
+                (connStr));
+
             services.AddControllers();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            // Dependency injection for IAzureMaturityModelRepo
+            //services.AddScoped<IAzureMaturityModelRepo, MockAzureMaturityModelRepo>();
+            services.AddScoped<IAzureMaturityModelRepo, SqlAzureMaturityModelRepo>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
