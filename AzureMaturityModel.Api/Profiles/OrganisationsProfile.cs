@@ -8,7 +8,12 @@ namespace AzureMaturityModel.Api.Profiles
     {
         public OrganisationsProfile()
         {
+            //source -> destination
             CreateMap<Organisation, OrganisationReadDto>();
+            CreateMap<Organisation, OrganisationListReadDto>();
+            CreateMap<OrganisationCreateDto, Organisation>();
+            CreateMap<OrganisationUpdateDto, Organisation>();
+            CreateMap<Organisation, OrganisationUpdateDto>();
         }
     }
 }

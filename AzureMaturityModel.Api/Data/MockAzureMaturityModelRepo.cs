@@ -6,6 +6,16 @@ namespace AzureMaturityModel.Api.Data
 {
     public class MockAzureMaturityModelRepo : IAzureMaturityModelRepo
     {
+        public void CreateOrganisation(Organisation org)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteOrganisation(Organisation org)
+        {
+            throw new NotImplementedException();
+        }
+
         public Organisation GetOrganisationById(Guid OrganisationId)
         {
             return new Organisation { OrganisationId = new Guid("7f666873-6fb5-4464-846c-8889c3abf6c1"), OrganisationName = "Mock Org 1" };
@@ -21,6 +31,16 @@ namespace AzureMaturityModel.Api.Data
             };
 
             return organisations;
+        }
+
+        public bool SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateOrganisation(Organisation org)
+        {
+            throw new NotImplementedException();
         }
     }
 }

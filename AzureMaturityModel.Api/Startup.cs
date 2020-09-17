@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Serialization;
 
 namespace AzureMaturityModel.Api
 {
@@ -33,7 +34,9 @@ namespace AzureMaturityModel.Api
             services.AddDbContext<AzureMaturityModelContext>(opt => opt.UseSqlServer
                 (connStr));
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(s => {
+                 s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

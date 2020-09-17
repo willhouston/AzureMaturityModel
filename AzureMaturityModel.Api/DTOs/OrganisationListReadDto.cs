@@ -1,10 +1,8 @@
 ﻿using System;
 namespace AzureMaturityModel.Api.DTOs
 {
-    public class OrganisationReadDto
+    public class OrganisationListReadDto
     {
-        public Guid OrganisationId { get; set; }
-
         public string OrganisationName { get; set; }
     }
 }
