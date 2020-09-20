@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace AzureMaturityModel.Api.Models
-{ 
-    public class Organisation
+{
+    public class Team
     {
         [Key]
-        public Guid OrganisationId { get; set; }
+        public int TeamId { get; set; }
 
         [Required]
         [MaxLength(50)]
-        public string OrganisationName { get; set; }
+        public string TeamName { get; set; }
 
-        public List<Team> Teams { get; set; }
+        public List<Solution> Solutions { get; set; }
 
         [Required]
         [MaxLength(50)]

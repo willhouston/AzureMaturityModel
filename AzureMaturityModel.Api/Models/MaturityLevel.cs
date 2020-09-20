@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace AzureMaturityModel.Api.Models
-{ 
-    public class Organisation
+{
+    public class MaturityLevel
     {
         [Key]
-        public Guid OrganisationId { get; set; }
+        public int MaturityLevelId { get; set; }
 
         [Required]
         [MaxLength(50)]
-        public string OrganisationName { get; set; }
+        public string MaturityLevelName { get; set; }
 
-        public List<Team> Teams { get; set; }
+        public List<SolutionMetric> SolutionMetrics { get; set; }
 
         [Required]
         [MaxLength(50)]

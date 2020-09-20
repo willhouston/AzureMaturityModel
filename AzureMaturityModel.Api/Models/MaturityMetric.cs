@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace AzureMaturityModel.Api.Models
-{ 
-    public class Organisation
+{
+    public class MaturityMetric
     {
         [Key]
-        public Guid OrganisationId { get; set; }
+        public int MaturityMetricId { get; set; }
 
         [Required]
         [MaxLength(50)]
-        public string OrganisationName { get; set; }
+        public string MaturityMetricName { get; set; }
 
-        public List<Team> Teams { get; set; }
+        [MaxLength(1000)]
+        public string Description { get; set; }
+
+        [Required]
+        public int SortKey { get; set; }
+
+        public List<SolutionMetric> SolutionMetrics { get; set; }
 
         [Required]
         [MaxLength(50)]
@@ -28,5 +34,6 @@ namespace AzureMaturityModel.Api.Models
 
         [Required]
         public DateTime ModifiedDate { get; set; }
+
     }
 }

@@ -21,7 +21,7 @@ namespace AzureMaturityModel.Api.Data
                 throw new ArgumentNullException(nameof(org));
             }
 
-            _context.Organisations.Add(org);
+            _context.Organisation.Add(org);
         }
 
         public void DeleteOrganisation(Organisation org)
@@ -31,17 +31,17 @@ namespace AzureMaturityModel.Api.Data
                 throw new ArgumentNullException(nameof(org));
             }
 
-            _context.Organisations.Remove(org);
+            _context.Organisation.Remove(org);
         }
 
         public Organisation GetOrganisationById(Guid organisationId)
         {
-            return _context.Organisations.FirstOrDefault(p => p.OrganisationId == organisationId);
+            return _context.Organisation.FirstOrDefault(p => p.OrganisationId == organisationId);
         }
 
         public IEnumerable<Organisation> GetOrganisations()
         {
-            return _context.Organisations.ToList();
+            return _context.Organisation.ToList();
         }
 
         public bool SaveChanges()

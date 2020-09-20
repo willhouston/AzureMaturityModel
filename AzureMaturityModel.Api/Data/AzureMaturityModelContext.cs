@@ -11,6 +11,21 @@ namespace AzureMaturityModel.Api.Data
 
         }
 
-        public DbSet<Organisation> Organisations { get; set; }
+        protected  override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<SolutionMetric>().HasKey(table => new
+            {
+                table.SolutionId,
+                table.MaturityMetricId
+            });
+        }
+
+        public DbSet<Organisation> Organisation { get; set; }
+
+        public DbSet<MetricCategory> MetricCategory { get; set; }
+
+        public DbSet<MaturityLevel> MaturityLevel { get; set; }
+
+
     }
 }

@@ -19,11 +19,138 @@ namespace AzureMaturityModel.Api.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("AzureMaturityModel.Api.Models.MaturityLevel", b =>
+                {
+                    b.Property<int>("MetricCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MaturityLevelName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("ModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("MetricCategoryId");
+
+                    b.ToTable("MaturityLevel");
+                });
+
+            modelBuilder.Entity("AzureMaturityModel.Api.Models.MaturityMetric", b =>
+                {
+                    b.Property<int>("MaturityMetricId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("MaturityMetricName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<int?>("MetricCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SortKey")
+                        .HasColumnType("int");
+
+                    b.HasKey("MaturityMetricId");
+
+                    b.HasIndex("MetricCategoryId");
+
+                    b.ToTable("MaturityMetric");
+                });
+
+            modelBuilder.Entity("AzureMaturityModel.Api.Models.MetricCategory", b =>
+                {
+                    b.Property<int>("MetricCategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MetricCategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("ModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("MetricCategoryId");
+
+                    b.ToTable("MetricCategory");
+                });
+
             modelBuilder.Entity("AzureMaturityModel.Api.Models.Organisation", b =>
                 {
                     b.Property<Guid>("OrganisationId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("OrganisationName")
                         .IsRequired()
@@ -32,7 +159,158 @@ namespace AzureMaturityModel.Api.Migrations
 
                     b.HasKey("OrganisationId");
 
-                    b.ToTable("Organisations");
+                    b.ToTable("Organisation");
+                });
+
+            modelBuilder.Entity("AzureMaturityModel.Api.Models.Solution", b =>
+                {
+                    b.Property<int>("SolutionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
+
+                    b.Property<string>("InternalRef")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("ModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SolutionName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TeamId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SolutionId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("Solution");
+                });
+
+            modelBuilder.Entity("AzureMaturityModel.Api.Models.SolutionMetric", b =>
+                {
+                    b.Property<int>("SolutionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaturityMetricId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EnvironmentTag")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<int?>("MaturityLevelMetricCategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SolutionId", "MaturityMetricId");
+
+                    b.HasIndex("MaturityLevelMetricCategoryId");
+
+                    b.HasIndex("MaturityMetricId");
+
+                    b.ToTable("SolutionMetric");
+                });
+
+            modelBuilder.Entity("AzureMaturityModel.Api.Models.Team", b =>
+                {
+                    b.Property<int>("TeamId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<DateTime>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("OrganisationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("TeamName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("TeamId");
+
+                    b.HasIndex("OrganisationId");
+
+                    b.ToTable("Team");
+                });
+
+            modelBuilder.Entity("AzureMaturityModel.Api.Models.MaturityMetric", b =>
+                {
+                    b.HasOne("AzureMaturityModel.Api.Models.MetricCategory", null)
+                        .WithMany("MaturityMetrics")
+                        .HasForeignKey("MetricCategoryId");
+                });
+
+            modelBuilder.Entity("AzureMaturityModel.Api.Models.Solution", b =>
+                {
+                    b.HasOne("AzureMaturityModel.Api.Models.Team", null)
+                        .WithMany("Solutions")
+                        .HasForeignKey("TeamId");
+                });
+
+            modelBuilder.Entity("AzureMaturityModel.Api.Models.SolutionMetric", b =>
+                {
+                    b.HasOne("AzureMaturityModel.Api.Models.MaturityLevel", null)
+                        .WithMany("SolutionMetrics")
+                        .HasForeignKey("MaturityLevelMetricCategoryId");
+
+                    b.HasOne("AzureMaturityModel.Api.Models.MaturityMetric", null)
+                        .WithMany("SolutionMetrics")
+                        .HasForeignKey("MaturityMetricId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AzureMaturityModel.Api.Models.Solution", null)
+                        .WithMany("SolutionMetrics")
+                        .HasForeignKey("SolutionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AzureMaturityModel.Api.Models.Team", b =>
+                {
+                    b.HasOne("AzureMaturityModel.Api.Models.Organisation", null)
+                        .WithMany("Teams")
+                        .HasForeignKey("OrganisationId");
                 });
 #pragma warning restore 612, 618
         }
